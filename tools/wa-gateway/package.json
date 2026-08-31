@@ -1,0 +1,14 @@
+{
+  "name": "wutuh-wa-gateway",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Gateway WhatsApp asli untuk WUTUH (Baileys / protokol WhatsApp Web) — antarmuka kompatibel Fonnte: POST /send {target, message}, header Authorization",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "baileys": "^6.7.16",
+    "pino": "^9.5.0",
+    "qrcode": "^1.5.4"
+  }
+}

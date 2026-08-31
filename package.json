@@ -1,0 +1,23 @@
+{
+  "name": "wutuh",
+  "version": "0.0.1",
+  "private": true,
+  "description": "WUTUH — The Complete Agribusiness Platform",
+  "scripts": {
+    "dev:api": "pnpm --filter @wutuh/api dev",
+    "dev:web": "pnpm --filter @wutuh/web dev",
+    "build": "pnpm -r build",
+    "db:create": "pnpm --filter @wutuh/api db:create",
+    "db:push": "pnpm --filter @wutuh/api db:push",
+    "db:rls": "pnpm --filter @wutuh/api db:rls",
+    "db:seed": "pnpm --filter @wutuh/api db:seed",
+    "db:setup": "pnpm db:create && pnpm db:push && pnpm db:rls && pnpm db:seed"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild", "@nestjs/core", "vue-demi", "bcrypt"]
+  },
+  "packageManager": "pnpm@10.15.1"
+}

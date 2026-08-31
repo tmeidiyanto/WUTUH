@@ -1,0 +1,6 @@
+node_modules/
+auth/
+qr.png
+token.txt
+gw.log
+package-lock.json

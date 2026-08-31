@@ -1,0 +1,176 @@
+/* ===== Variabel tema WUTUH (hijau + biru; light default, dark saat html.dark) ===== */
+:root {
+  --app-bg: #f2f7f3;
+  --app-surface: #ffffff;
+  --app-surface-2: #f6faf7;
+  --app-border: #dfe9e1;
+  --app-border-strong: #c3d4c7;
+  --app-text: #1c2b21;
+  --app-text-muted: #5f7266;
+  /* Sidebar mengikuti mode: terang di light mode */
+  --app-sidebar: #ffffff;
+  --app-sidebar-hover: #ecf4ee;
+  --app-sidebar-text: #33463a;
+  --app-sidebar-muted: #5f7266;
+  --app-sidebar-border: #dfe9e1;
+  /* Hijau = warna utama; biru = warna pendamping (gradien & aksen sekunder) */
+  --app-primary: #15803d;
+  --app-accent: #0369a1;
+  --app-danger: #dc2626;
+  --app-row-hover: #ecf4ee;
+  --app-grad: linear-gradient(135deg, var(--app-primary), var(--app-accent));
+}
+
+html.dark {
+  --app-bg: #0a1410;
+  --app-surface: #14231b;
+  --app-surface-2: #0f1c15;
+  --app-border: #24382c;
+  --app-border-strong: #35503f;
+  --app-text: #dcebe0;
+  --app-text-muted: #8fa697;
+  --app-sidebar: #06100a;
+  --app-sidebar-hover: #16281d;
+  --app-sidebar-text: #c2d6c8;
+  --app-sidebar-muted: #8fa697;
+  --app-sidebar-border: #16281d;
+  --app-primary: #22c55e;
+  --app-accent: #38bdf8;
+  --app-danger: #f87171;
+  --app-row-hover: #1a3024;
+}
+
+/* ===== Aksen per tema (dikombinasikan dengan mode light/dark) ===== */
+/* html[data-theme] agar specificity mengalahkan html.dark */
+html[data-theme='hijau'] { --app-primary: #15803d; --app-accent: #0369a1; }
+html[data-theme='biru'] { --app-primary: #1d4ed8; --app-accent: #15803d; }
+html[data-theme='teal'] { --app-primary: #0f766e; --app-accent: #4d7c0f; }
+html[data-theme='sawah'] { --app-primary: #4d7c0f; --app-accent: #0e7490; }
+html[data-theme='laut'] { --app-primary: #0e7490; --app-accent: #15803d; }
+/* Aksen sedikit lebih terang di dark mode */
+html.dark[data-theme='hijau'] { --app-primary: #22c55e; --app-accent: #38bdf8; }
+html.dark[data-theme='biru'] { --app-primary: #3b82f6; --app-accent: #4ade80; }
+html.dark[data-theme='teal'] { --app-primary: #2dd4bf; --app-accent: #a3e635; }
+html.dark[data-theme='sawah'] { --app-primary: #a3e635; --app-accent: #22d3ee; }
+html.dark[data-theme='laut'] { --app-primary: #22d3ee; --app-accent: #4ade80; }
+
+/* ===== Tipografi ringkas (base 14px) ===== */
+html {
+  font-size: 14px;
+}
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: var(--app-bg);
+  color: var(--app-text);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+h1 { font-size: 1.5rem; font-weight: 700; }
+h2 { font-size: 1.2rem; font-weight: 700; margin: 0 0 0.75rem; }
+h3 { font-size: 1.02rem; font-weight: 600; }
+small { font-size: 0.8rem; }
+
+/* Skala komponen PrimeVue sedikit lebih rapat */
+.p-datatable,
+.p-treetable {
+  font-size: 0.9rem;
+}
+
+/* Semua DataTable: sudut membulat + row hover (berlaku global) */
+.p-datatable,
+.p-treetable {
+  border: 1px solid var(--app-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.p-datatable .p-datatable-tbody > tr,
+.p-treetable .p-treetable-tbody > tr {
+  transition: background-color 0.12s ease;
+}
+.p-datatable .p-datatable-tbody > tr:hover > td,
+.p-treetable .p-treetable-tbody > tr:hover > td {
+  background: var(--app-row-hover) !important;
+}
+
+/* ===== Density: compact — spacing & font lebih rapat ===== */
+html.density-compact { font-size: 13px; }
+html.density-compact .content { padding: 0.85rem; }
+html.density-compact .p-datatable-tbody > tr > td,
+html.density-compact .p-datatable-thead > tr > th {
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+html.density-compact .p-datatable { font-size: 0.85rem; }
+
+/* ===== Pola form & header halaman (dipakai lintas view) ===== */
+.page-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.page-head h2 { margin: 0; }
+.head-actions { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+.searchbox { position: relative; display: inline-flex; align-items: center; }
+.searchbox .pi-search { position: absolute; left: 0.6rem; color: var(--app-text-muted); z-index: 1; }
+.searchbox input { padding-left: 1.9rem; width: 15rem; max-width: 58vw; }
+
+.form-grid { display: flex; flex-direction: column; gap: 0.35rem; }
+.form-grid label { font-size: 0.85rem; font-weight: 600; margin-top: 0.4rem; display: block; }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+.row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.6rem; }
+@media (max-width: 560px) {
+  .row2, .row3 { grid-template-columns: 1fr; }
+}
+.empty-note { padding: 1rem; color: var(--app-text-muted); }
+
+/* Kartu KPI / ringkasan */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+  gap: 0.8rem;
+}
+@media (max-width: 560px) {
+  .cards-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.6rem; }
+}
+.kpi-card {
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-width: 0;
+}
+.kpi-card .pi {
+  font-size: 1.3rem;
+  color: var(--app-primary);
+  background: color-mix(in srgb, var(--app-primary) 12%, transparent);
+  padding: 0.6rem;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+.kpi-card .meta { display: flex; flex-direction: column; min-width: 0; }
+.kpi-card .t { color: var(--app-text-muted); font-size: 0.76rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.kpi-card .v { font-weight: 700; font-size: 1.08rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.kpi-card .v small { color: var(--app-text-muted); font-weight: 600; font-size: 0.75rem; }
+
+/* Dialog responsif */
+.p-dialog { max-width: 94vw; }
+
+/* ===== Cetak: sembunyikan kerangka aplikasi ===== */
+@media print {
+  .sidebar,
+  .topbar,
+  .mobile-drawer,
+  .drawer-backdrop {
+    display: none !important;
+  }
+  .content { padding: 0 !important; }
+}

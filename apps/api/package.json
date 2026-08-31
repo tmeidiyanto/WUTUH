@@ -1,0 +1,41 @@
+{
+  "name": "@wutuh/api",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "nest start --watch",
+    "build": "nest build",
+    "start": "node dist/main.js",
+    "db:create": "ts-node -P tsconfig.json scripts/create-db.ts",
+    "db:push": "drizzle-kit push",
+    "db:generate": "drizzle-kit generate",
+    "db:rls": "ts-node -P tsconfig.json scripts/apply-sql.ts db/sql/roles.sql db/sql/rls.sql",
+    "db:seed": "ts-node -P tsconfig.json scripts/seed.ts"
+  },
+  "dependencies": {
+    "@nestjs/common": "^10.4.4",
+    "@nestjs/config": "^3.3.0",
+    "@nestjs/core": "^10.4.4",
+    "@nestjs/jwt": "^10.2.0",
+    "@nestjs/platform-express": "^10.4.4",
+    "bcryptjs": "^2.4.3",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "decimal.js": "^10.4.3",
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.36.4",
+    "pg": "^8.13.1",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^10.4.5",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.7.4",
+    "@types/pg": "^8.11.10",
+    "drizzle-kit": "^0.28.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2"
+  }
+}

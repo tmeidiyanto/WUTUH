@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.env
+apps/api/uploads/
+*.tsbuildinfo
+.DS_Store
+*.log
+# Kredensial gateway WhatsApp (tools/wa-gateway juga punya .gitignore sendiri)
+tools/wa-gateway/auth/
+tools/wa-gateway/token.txt
+tools/wa-gateway/qr.png
